@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fake News Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <img src="{{ url_for('static', filename='news.png') }}">
+        <div>
+            <h1>Fake News Detection</h1>
+            <p>AI-powered real-time news credibility checker</p>
+        </div>
+    </div>
+
+    <!-- MANUAL INPUT -->
+    <form method="POST">
+        <textarea name="news" placeholder="Paste news text here..." required></textarea>
+        <button type="submit">Analyze News</button>
+    </form>
+
+    <!-- RESULT -->
+    {% if prediction %}
+    <div class="result 
+        {% if 'REAL' in prediction %}real
+        {% elif 'FAKE' in prediction %}fake
+        {% else %}warning{% endif %}">
+        
+        <h3>{{ prediction }}</h3>
+        {% if confidence %}
+        <p><b>Confidence:</b> {{ confidence }}%</p>
+        <p><b>Reason:</b> {{ reason }}</p>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <!-- LIVE NEWS -->
+    <h2 style="margin-top:30px;">📰 Live News</h2>
+
+    {% for article in articles %}
+    <div style="background:#f4f6fb; padding:15px; border-radius:12px; margin-bottom:15px;">
+        <h4>{{ article.title }}</h4>
+
+        <p>
+            {{ article.description if article.description else "No description available." }}
+        </p>
+
+        <form method="POST">
+            <input type="hidden" name="news"
+            value="{{ article.title }}
+                   {{ article.description if article.description else '' }}
+                   {{ article.content if article.content else '' }}">
+            <button type="submit">Check Authenticity</button>
+        </form>
+    </div>
+    {% endfor %}
+
+    <div class="footer">
+        © 2025 | Fake News Detection using Machine Learning
+    </div>
+
+</div>
+
+</body>
+</html>
