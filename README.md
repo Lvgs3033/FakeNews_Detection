@@ -29,15 +29,23 @@ BERT model (optional – requires higher resources)
 fake-news-detection/
 
 │── app.py
+
 │── requirements.txt
+
 │── fake_news_model.pkl
+
 │── bert_model.pkl # optional
+
 │── bert_vectorizer.pkl # optional
 │
 ├── templates/
+
 │ └── index.html
+
 ├── static/
+
 │ └── style.css
+
 └── README.md
 
 **Installation**
