@@ -24,6 +24,7 @@ TF-IDF Vectorizer + Logistic Regression / Naive Bayes (lightweight)
 
 BERT model (optional – requires higher resources)
 
+
 **Installation**
 
 git clone https://github.com/Lvgs3033/FakeNews_Detection
