@@ -24,30 +24,6 @@ TF-IDF Vectorizer + Logistic Regression / Naive Bayes (lightweight)
 
 BERT model (optional – requires higher resources)
 
-**Project Structure**
-
-fake-news-detection/
-
-│── app.py
-
-│── requirements.txt
-
-│── fake_news_model.pkl
-
-│── bert_model.pkl # optional
-
-│── bert_vectorizer.pkl # optional
-│
-├── templates/
-
-│ └── index.html
-
-├── static/
-
-│ └── style.css
-
-└── README.md
-
 **Installation**
 
 git clone https://github.com/Lvgs3033/FakeNews_Detection
